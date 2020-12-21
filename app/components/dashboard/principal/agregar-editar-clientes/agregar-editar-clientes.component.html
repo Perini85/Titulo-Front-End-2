@@ -1,0 +1,68 @@
+<h3>{{accion}} Clientes</h3>
+
+<form [formGroup]="clientes" (ngSubmit)="guardarClientes()">
+    <div class="form-group row">
+        <label class="control-label col-md-12"> Rut( con guion y digito verificador)</label>
+        <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="rut">
+        </div>
+    </div>
+    <span class="text-danger ml-3"
+        *ngIf="clientes.get('rut').hasError('required')&& clientes.get('rut').touched">
+        El rut es requerido</span>
+
+
+
+        <div class="form-group row">
+            <label class="control-label col-md-12"> Nombres</label>
+            <div class="col-md-12">
+                <input type="text" class="form-control" formControlName="nombres">
+            </div>
+        </div>
+        <span class="text-danger ml-3"
+            *ngIf="clientes.get('nombres').hasError('required')&& clientes.get('nombres').touched">
+            Los nombres son requerido</span>
+
+
+
+            <div class="form-group row">
+                <label class="control-label col-md-12"> Apellidos</label>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" formControlName="apellidos">
+                </div>
+            </div>
+            <span class="text-danger ml-3"
+                *ngIf="clientes.get('apellidos').hasError('required')&& clientes.get('apellidos').touched">
+                Los apllidos son requerido</span>
+
+
+                <div class="form-group row">
+                    <label class="control-label col-md-12"> Telefono(anteponer 9 a movil)</label>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" formControlName="telefono">
+                    </div>
+                </div>
+                <span class="text-danger ml-3"
+                    *ngIf="clientes.get('telefono').hasError('required')&& clientes.get('telefono').touched">
+                    El telefono requerido</span>
+
+
+                    <div class="form-group row">
+                        <label class="control-label col-md-12"> correo</label>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" formControlName="correo">
+                        </div>
+                    </div>
+                    <span class="text-danger ml-3"
+                        *ngIf="clientes.get('correo').hasError('required')&& clientes.get('correo').touched">
+                       el correo requerido</span>
+
+                      
+
+                       
+        <div class="form-group">
+            <button class="btn btn-success float-right" [disabled]= "clientes.invalid">Aceptar</button>
+            <button [routerLink]= "['/dashboard/clientes']"class="btn btn-secondary float-left">Cancelar</button>
+        </div>
+
+</form>

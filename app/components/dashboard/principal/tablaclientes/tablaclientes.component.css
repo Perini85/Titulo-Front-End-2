@@ -1,0 +1,15 @@
+scroll-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 5em;
+  }
+
+
+  .layout{
+    background: linear-gradient(rgb(89, 117, 136),rgb(128, 128, 173)),url(../../../../../assets/img/Dashboard.png);
+    background-size: cover;
+background-position: center;
+
+}

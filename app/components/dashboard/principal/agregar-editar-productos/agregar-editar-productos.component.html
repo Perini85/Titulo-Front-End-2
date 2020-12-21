@@ -1,0 +1,40 @@
+<h3>{{accion}} Productos</h3>
+
+<form [formGroup]="productos" (ngSubmit)="guardarProductos()">
+
+    <div class="form-group row">
+        <label class="control-label col-md-12"> Descripcion</label>
+        <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="descripcion">
+        </div>
+    </div>
+    <span class="text-danger ml-3"
+    *ngIf="productos.get('descripcion').hasError('required')&& productos.get('descripcion').touched">
+    la descripcion es requerida</span>
+
+
+    <div class="form-group row">
+        <label class="control-label col-md-12"> Precio</label>
+        <div class="col-md-12">
+            <input type="number" class="form-control" formControlName="precio">
+        </div>
+    </div>
+    <span class="text-danger ml-3"
+    *ngIf="productos.get('descripcion').hasError('required')&& productos.get('descripcion').touched">
+    El Precio es requerido</span>
+
+    <div class="form-group row">
+        <label class="control-label col-md-12"> Stock</label>
+        <div class="col-md-12">
+            <input type="number" class="form-control" formControlName="stock">
+        </div>
+    </div>
+    <span class="text-danger ml-3"
+    *ngIf="productos.get('stock').hasError('required')&& productos.get('stock').touched">
+    El Precio es requerido</span>
+
+    <div class="form-group">
+        <button class="btn btn-success float-right" [disabled]= "productos.invalid">Aceptar</button>
+        <button [routerLink]= "['/dashboard/Productos']"class="btn btn-secondary float-left">Cancelar</button>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+
+
+<!-- 
+<div >
+    
+    
+    <h3> {{clientes.nombres + " " + clientes.apellidos}}</h3>
+    <ul> 
+    <li>Rut{{ clientes.rut }}</li>
+    <li> <mat-icon>local_movies</mat-icon>{{ clientes.correo }}</li>
+    <li>{{ clientes.telefono }}</li>
+
+    </ul>
+    </div>
+     -->
+     <div class="card" style="width: 18rem;">
+        <div class="card-header">
+         {{ clientes.nombres + " " + clientes.apellidos}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ clientes.rut }}</li>
+          <li class="list-group-item">{{ clientes.correo }}</li>
+          <li class="list-group-item">{{ clientes.telefono }}</li>
+        </ul>
+      </div>

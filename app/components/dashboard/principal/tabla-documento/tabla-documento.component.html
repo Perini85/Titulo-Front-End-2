@@ -1,0 +1,42 @@
+
+<div class="row " style="padding-top: 10px ;" >
+    <div class="col-lg-6">
+    <h3> Lista de Documentos</h3>
+    
+    </div>
+    
+    <div class="col-lg-6">
+       <button class="btn btn-primary float-right" [routerLink]="['/dashboard/agregarDocumento']">Nuevo Documento</button>
+        
+        </div>
+       
+    
+    </div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let cabecera of cabeceras">{{cabecera}}</th>
+        <!-- <th *ngIf="isMantenimiento==true">Operaciones</th> -->
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let documentos of listDocumentos | paginate: { itemsPerPage: 6, currentPage: p } ">
+        <td>{{documentos.id}}</td>
+        <td>{{documentos.numeroDoc}}</td>
+        <td>{{documentos.valor | currency}}</td>
+        <td> <a [routerLink] ="['/dashboard/ver/',documentos.idCliente]">{{documentos.idCliente}}</a></td>
+        <td>{{documentos.fechaCreacion | date:'dd-MM-yyyy' }} </td>
+        
+
+
+
+            <td> <button class= "btn btn-primary btn-sm float-right" [routerLink] ="['/dashboard/editardoc/',documentos.id]" > Editar</button> </td>
+            <td><button class= "btn btn-danger btn-sm float-right" (click)= "Eliminar(documentos.id)">Eliminar</button> </td>
+
+          
+  
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

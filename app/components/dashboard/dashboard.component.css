@@ -1,0 +1,17 @@
+.layout{
+    background: linear-gradient(rgba(221, 199, 178, 0.5),rgb(122, 99, 77)),url(../../../assets/img/notebook-3.jpg);
+    background-size: cover;
+background-position: center;
+
+}
+
+.layout2{
+    background: linear-gradient(rgba(230, 223, 223, 0.5),rgb(201, 188, 177)),url(../../../assets/img/Dashboard.png);
+    background-size: cover;
+background-position: center;
+width:100%;
+height: 100%;
+
+
+}
+

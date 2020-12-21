@@ -1,0 +1,40 @@
+<div class="row " style="padding-top: 10px ;" >
+    <div class="col-lg-6">
+    <h3> Lista de Documentos</h3>
+    
+    </div>
+    
+    <div class="col-lg-6">
+       <button class="btn btn-primary float-right" [routerLink]="['/dashboard/agregarProducto']">Nuevo Producto</button>
+        
+        </div>
+       
+    
+    </div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let cabecera of cabeceras">{{cabecera}}</th>
+        <!-- <th *ngIf="isMantenimiento==true">Operaciones</th> -->
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let productos of listProductos | paginate: { itemsPerPage: 6, currentPage: p } ">
+        <td>{{productos.id}}</td>
+        <td>{{productos.descripcion}}</td>
+        <td>{{productos.precio | currency}}</td>
+        <td> {{productos.stock}}</td>
+        
+
+
+
+            <td> <button class= "btn btn-primary btn-sm float-right" [routerLink] ="['/dashboard/editarprod/',productos.id]" > Editar</button> </td>
+            <td><button class= "btn btn-danger btn-sm float-right" (click)= "Eliminar(productos.id)">Eliminar</button> </td>
+
+          
+  
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

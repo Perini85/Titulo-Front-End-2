@@ -1,0 +1,71 @@
+<h3>{{accion}} Documentos</h3>
+
+<form [formGroup]="documentos" (ngSubmit)="guardarDocumentos()">
+
+    <div class="form-group row">
+        <label class="control-label col-md-12"> Monto</label>
+        <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="valor">
+        </div>
+    </div>
+    <span class="text-danger ml-3"
+        *ngIf="documentos.get('valor').hasError('required')&& documentos.get('valor').touched">
+        El Monto es requerido</span>
+
+
+
+
+    <div class="form-group row">
+        <label class="control-label col-md-12"> Numero de Documento</label>
+        <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="numeroDoc">
+        </div>
+    </div>
+    <span class="text-danger ml-3"
+        *ngIf="documentos.get('numeroDoc').hasError('required')&& documentos.get('numeroDoc').touched">
+        El Numero de Documento es requerido</span>
+
+
+    
+        <div class="form-group" formControlName="idCliente">
+            <label>Seleccionar cliente</label>
+            <select class="form-control" formControlName="idCliente">
+              <option value=" ">--Seleccione--</option>
+
+      <option [value]="cliente.id" *ngFor="let cliente of clientes" >{{cliente.nombres + " " +cliente.apellidos}}</option>
+            </select>
+            <span class="text-danger ml-3"
+            *ngIf="documentos.get('idCliente').hasError('required')&& documentos.get('idCliente').touched">
+            El Cliente es requerido</span>
+            
+          </div> 
+
+
+
+
+          <div class="form-group" formControlName="tipoDocumentoId">
+            <label>Seleccionar Tipo de documento</label>
+            <select class="form-control" formControlName="tipoDocumentoId">
+              <option value=" ">--Seleccione--</option>
+
+      <option [value]="tipoDo.id" *ngFor="let tipoDo of tipoDoc" >{{tipoDo.descripcion}}</option>
+            </select>
+            <span class="text-danger ml-3"
+            *ngIf="documentos.get('tipoDocumentoId').hasError('required')&& documentos.get('tipoDocumentoId').touched">
+            El Tipo documento es requerido</span>
+            
+          </div> 
+
+          <div *ngIf="this.accion=='Agregar'">
+            <input type="file" (change)="fileEvent($event)"  formControlName="imagen"/>
+          </div>
+        
+          
+
+          <div class="form-group">
+            <button class="btn btn-success float-right" [disabled]= "documentos.invalid">Aceptar</button>
+            <button [routerLink]= "['/dashboard/documentos']"class="btn btn-secondary float-left">Cancelar</button>
+        </div>
+
+
+</form>
